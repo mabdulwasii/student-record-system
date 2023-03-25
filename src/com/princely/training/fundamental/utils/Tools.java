@@ -7,6 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Tools {
+
+  private Tools() {
+  }
+
   static Scanner scanner = new Scanner(System.in);
 
   static Student[] students = new Student[100];
