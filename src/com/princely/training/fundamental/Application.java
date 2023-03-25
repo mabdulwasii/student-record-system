@@ -7,6 +7,7 @@ public class Application {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+    boolean flag = true;
 
     int operation;
 
@@ -23,8 +24,12 @@ public class Application {
           System.out.println(" Student added successfully ");
           System.out.println(" ");
           break;
+
+        default:
+          System.out.println("Invalid input, try again ");
+
       }
-    } while (true);
+    } while (flag);
   }
 
 }
