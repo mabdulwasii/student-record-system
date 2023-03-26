@@ -23,6 +23,11 @@ public class Application {
           Tools.createNewStudent();
           break;
 
+        case 2:
+          //view all student
+          Tools.viewAllStudents();
+          break;
+
         default:
           System.out.println("Invalid input, try again ");
       }

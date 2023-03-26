@@ -2,10 +2,11 @@ package com.princely.training.fundamental.model;
 
 import com.princely.training.fundamental.enumeration.Gender;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Student {
 
-  static Student[] students = new Student[100];
+  private static Student[] students = new Student[100];
 
   static int currentId = 0;
 
@@ -32,8 +33,7 @@ public class Student {
   }
 
   private static int generateId() {
-    Student.currentId++;
-    return Student.currentId + 1;
+    return ++Student.currentId;
   }
 
   public String getFirstName() {
@@ -58,5 +58,9 @@ public class Student {
 
   public Gender getGender() {
     return gender;
+  }
+
+  public static Student[] getStudents() {
+    return Arrays.copyOf(students, currentId);
   }
 }

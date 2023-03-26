@@ -12,7 +12,6 @@ public class Tools {
   }
 
   static Scanner scanner = new Scanner(System.in);
-  static boolean flag = false;
   static int i = 0;
 
   //method to show operation list.
@@ -66,5 +65,41 @@ public class Tools {
 
     } while (addMore == 1);
 
+  }
+
+  public static void viewAllStudents() {
+    Student[] students = Student.getStudents();
+    if (students.length == 0) {
+      isEmptyMessage();
+    }else {
+      drawTable();
+      for (Student student : students) {
+        if (student != null) {
+          System.out.printf(" | %-25S| %-10S| %-15S| %-15S| %-15S|%n",
+              student.getFirstName() + " " + student.getSecondName(),
+              student.getId(),
+              student.getDateOfBirth(),
+              student.getAddress(),
+              student.getGender());
+        } else {
+          isEmptyMessage();
+          break;
+        }
+      }
+      System.out.println();
+    }
+  }
+
+  private static void drawTable() {
+    System.out.printf("            ------------------------------------------------------------------%n" +
+            "            ||||||| D-HUB SOFTWARE INSTITUTE STUDENT REGISTRATION FORM |||||||%n" +
+            " -------------------------------------------------------------------------------------------%n" +
+            " | %-25s| %-10s| %-15s| %-15s| %-15s|%n",
+        "  FULL NAME", "IDs", " DATE OF BIRTH", " ADDRESS", " GENDER");
+    System.out.println(" -------------------------------------------------------------------------------------------");
+  }
+
+  private static void isEmptyMessage() {
+    System.out.println(" Student list is empty, please go to option to add new student(s) thanks!!! \n");
   }
 }
