@@ -21,13 +21,10 @@ public class Application {
         case 1:
           //Create new student
           Tools.createNewStudent();
-          System.out.println(" Student added successfully ");
-          System.out.println(" ");
           break;
 
         default:
           System.out.println("Invalid input, try again ");
-
       }
     } while (flag);
   }

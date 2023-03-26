@@ -4,6 +4,11 @@ import com.princely.training.fundamental.enumeration.Gender;
 import java.time.LocalDate;
 
 public class Student {
+
+  static Student[] students = new Student[100];
+
+  static int currentId = 0;
+
   private String firstName;
   private String secondName;
   private LocalDate dateOfBirth;
@@ -11,14 +16,24 @@ public class Student {
   private int id;
   private Gender gender;
 
-
-  public Student(String firstName, String secondName, LocalDate dateOfBirth, String address, int id, Gender gender) {
+  public Student(String firstName, String secondName, LocalDate dateOfBirth,
+      String address, Gender gender) {
     this.firstName = firstName;
     this.secondName = secondName;
     this.dateOfBirth = dateOfBirth;
     this.address = address;
-    this.id = id;
     this.gender = gender;
+    this.id = generateId();
+    addNewStudent(this);
+  }
+
+  private static void addNewStudent(Student student) {
+    students[Student.currentId - 1] = student;
+  }
+
+  private static int generateId() {
+    Student.currentId++;
+    return Student.currentId + 1;
   }
 
   public String getFirstName() {

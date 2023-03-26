@@ -12,9 +12,6 @@ public class Tools {
   }
 
   static Scanner scanner = new Scanner(System.in);
-
-  static Student[] students = new Student[100];
-
   static boolean flag = false;
   static int i = 0;
 
@@ -27,9 +24,7 @@ public class Tools {
             "  3. view a student from the list %n" +
             "  4. Delete a student from the list %n" +
             "  5. Delete all student from the list %n" +
-            "  6. Exit the program %n");
-
-    System.out.println(" ");
+            "  6. Exit the program %n%n");
   }
 
   //1. method that create new student.
@@ -39,9 +34,6 @@ public class Tools {
     do {
       System.out.println(" ");
       System.out.println("        ENTER STUDENT INFORMATION");
-      int sId = i + 1;
-
-      System.out.println(" STUDENT ID : " + sId);
 
       System.out.print(" FIRST NAME : ");
       String firstName = scanner.next();
@@ -63,15 +55,14 @@ public class Tools {
 
       if (gender == 2) {
         sGender = Gender.FEMALE;
-
-
       }
+
+      new Student(firstName, secondName, bDate, sAddress, sGender);
+
+      System.out.println(" Student added successfully\n");
+
       System.out.print(" To continue press 1 or press any number to go back to option : ");
       addMore = scanner.nextInt();
-
-      students[i] = new Student(firstName, secondName, bDate, sAddress, sId, sGender);
-      i++;
-
 
     } while (addMore == 1);
 
